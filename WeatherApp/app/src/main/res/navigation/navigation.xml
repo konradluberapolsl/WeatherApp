@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/cityFragment">
+
+    <fragment
+        android:id="@+id/cityFragment"
+        android:name="com.example.watherapp.view.CityFragment"
+        android:label="city_fragment"
+        tools:layout="@layout/city_fragment" />
+    <fragment
+        android:id="@+id/cityList"
+        android:name="com.example.watherapp.view.CityList"
+        android:label="city_list_fragment"
+        tools:layout="@layout/city_list_fragment" />
+    <fragment
+        android:id="@+id/settingsContainerFragment"
+        android:name="com.example.watherapp.view.SettingsContainerFragment"
+        android:label="fragment_settings_container"
+        tools:layout="@layout/fragment_settings_container" />
+</navigation>
