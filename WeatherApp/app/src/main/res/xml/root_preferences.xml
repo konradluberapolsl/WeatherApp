@@ -1,34 +1,24 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+ <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/messages_header">
+    <PreferenceCategory app:title="@string/cities_header">
 
         <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
+            app:key="mainCity"
+            app:title="@string/main_city_title"
+            app:useSimpleSummaryProvider="true"
+            android:defaultValue="Gliwice"/>
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sync_header">
+    <PreferenceCategory app:title="@string/appearance_header">
 
         <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
 
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+            app:key="eldersMode"
+            app:summaryOff="@string/elders_mode_off"
+            app:summaryOn="@string/elders_mode_on"
+            app:title="@string/elders_mode_title" />
 
     </PreferenceCategory>
 

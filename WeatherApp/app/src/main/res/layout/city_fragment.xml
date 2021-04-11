@@ -1,56 +1,417 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
-
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
 
-        android:layout_height="192dp"
-        android:layout_width="match_parent">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCityDetails"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name" />
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCityDetails"
+        android:background="?listColor">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:toolbarId="@+id/toolbar"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:contentScrim="?attr/colorPrimary"
-            app:statusBarScrim="?attr/colorPrimaryVariant">
+            android:layout_marginBottom="10sp"
+            android:orientation="vertical">
 
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="15sp"
+                android:visibility="visible"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <ImageView
+                        android:id="@+id/imageViewCityIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintStart_toStartOf="@+id/textViewCityName"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCityName"
+                        app:srcCompat="@drawable/ic_launcher_background" />
+
+                    <TextView
+                        android:id="@+id/textViewCityName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="15dp"
+                        android:text="TextView"
+                        android:textColor="@color/white"
+                        android:textSize="35sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+                    <TextView
+                        android:id="@+id/textViewCityTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="-00.00C"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewCityIcon"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewCityIcon"
+                        app:layout_constraintTop_toTopOf="@+id/imageViewCityIcon"
+                        app:layout_constraintVertical_bias="0.19999999" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/feels_like"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="@+id/textViewCityTemp"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/textViewCityTemp"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCityTemp" />
+
+                    <TextView
+                        android:id="@+id/textViewFeelsLikeTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="-00.00C"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+                        app:layout_constraintStart_toEndOf="@+id/textView9"
+                        app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+                    <TextView
+                        android:id="@+id/textViewCityCondition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="TextView"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/imageViewCityIcon"
+                        app:layout_constraintTop_toBottomOf="@+id/imageViewCityIcon" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/now"
+                        android:textColor="@color/white_smoke"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.appbar.MaterialToolbar>
+            </androidx.cardview.widget.CardView>
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="15sp"
+                android:visibility="visible"
+                app:cardCornerRadius="10dp">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/sunset_sunrise"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView13"
+                        app:srcCompat="@drawable/ic_sunrise" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                        app:srcCompat="@drawable/ic_sunset" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/textViewCitySunRise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="TextView"
+                        android:textColor="?textColor"
+                        android:textSize="21sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+                    <TextView
+                        android:id="@+id/textViewCitySunset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="TextView"
+                        android:textColor="?textColor"
+                        android:textSize="21sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                        app:layout_constraintStart_toEndOf="@+id/imageView3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="15sp"
+                app:cardCornerRadius="10dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/details"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/max_temp"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/pressure"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/textViewCityMaxTemp"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCityMaxTemp" />
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/humidity"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/textViewCityPressure"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCityPressure" />
+
+                    <TextView
+                        android:id="@+id/textView26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/wind"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/textViewCityHumidity"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCityHumidity" />
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/visibility"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/textViewCityCloudiness"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCityCloudiness" />
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:text="@string/cloudiness"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/textViewCityPrecipitation"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCityPrecipitation" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130dp"
+                        android:text="@string/min_temp"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView17"
+                        app:layout_constraintStart_toEndOf="@+id/textView17"
+                        app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="130dp"
+                        android:text="@string/precipitation"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView21"
+                        app:layout_constraintStart_toEndOf="@+id/textView21"
+                        app:layout_constraintTop_toTopOf="@+id/textView21" />
+
+                    <TextView
+                        android:id="@+id/textViewCityMaxTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="-00.00"
+                        android:textColor="?textColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/textView17"
+                        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+                    <TextView
+                        android:id="@+id/textViewCityPressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="1000hPa"
+                        android:textColor="?textColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/textView21"
+                        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+                    <TextView
+                        android:id="@+id/textViewCityHumidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="100%"
+                        android:textColor="?textColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/textView24"
+                        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+                    <TextView
+                        android:id="@+id/textViewCityWind"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="30dp"
+                        android:text="00.00ms"
+                        android:textColor="?textColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textView26"
+                        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+                    <TextView
+                        android:id="@+id/textViewCityVisibility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="10000m"
+                        android:textColor="?textColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/textView27"
+                        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+                    <TextView
+                        android:id="@+id/textViewCityCloudiness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="100%"
+                        android:textColor="?textColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/textView25"
+                        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+                    <TextView
+                        android:id="@+id/textViewCityPrecipitation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="0.0mm"
+                        android:textColor="?textColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/textView22"
+                        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+                    <TextView
+                        android:id="@+id/textViewCityMinTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="-00.00"
+                        android:textColor="?textColor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/textView18"
+                        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

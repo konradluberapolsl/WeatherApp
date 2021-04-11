@@ -8,4 +8,9 @@
     <color name="green_800">#2e7d32</color>
     <color name="dark_blue">#5472d3</color>
     <color name="dark_green">#005005</color>
+    <color name="gary">#C5C5C5</color>
+
+    <attr name="listColor" format="reference|color" />
+    <attr name="textColor" format="reference|color" />
+
 </resources>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/cityFragment">
+    app:startDestination="@id/homeCityHolderFragment">
 
     <fragment
         android:id="@+id/cityFragment"
@@ -14,10 +14,34 @@
         android:id="@+id/cityList"
         android:name="com.example.watherapp.view.CityList"
         android:label="city_list_fragment"
-        tools:layout="@layout/city_list_fragment" />
+        tools:layout="@layout/city_list_fragment" >
+        <action
+            android:id="@+id/action_cityList_to_cityHolderFragment"
+            app:destination="@id/cityHolderFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsContainerFragment"
         android:name="com.example.watherapp.view.SettingsContainerFragment"
         android:label="fragment_settings_container"
         tools:layout="@layout/fragment_settings_container" />
+    <fragment
+        android:id="@+id/homeCityHolderFragment"
+        android:name="com.example.watherapp.view.HomeCityHolderFragment"
+        android:label="fragment_home_city_holder_fragment"
+        tools:layout="@layout/fragment_home_city_holder" />
+    <fragment
+        android:id="@+id/cityHolderFragment"
+        android:name="com.example.watherapp.view.CityHolderFragment"
+        android:label="fragment_city_holder"
+        tools:layout="@layout/fragment_city_holder" >
+        <action
+            android:id="@+id/action_cityHolderFragment_to_cityList"
+            app:destination="@id/cityList"
+            app:popUpTo="@id/cityList" />
+    </fragment>
+    <fragment
+        android:id="@+id/eldersCityFragment"
+        android:name="com.example.watherapp.view.EldersCityFragment"
+        android:label="fragment_elders_city"
+        tools:layout="@layout/fragment_elders_city" />
 </navigation>

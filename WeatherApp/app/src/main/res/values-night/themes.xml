@@ -2,15 +2,17 @@
     <!-- Base application theme. -->
     <style name="Theme.WatherApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/dark_blue</item>
+        <item name="colorPrimary">@color/blue_900</item>
 <!--        <item name="colorPrimaryVariant">@color/dark_blue</item>-->
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/dark_green</item>
+        <item name="colorSecondary">@color/green_800</item>
 <!--        <item name="colorSecondaryVariant">@color/teal_200</item>-->
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
         <!-- Customize your theme here. -->
+        <item name="listColor">@color/black</item>
+        <item name="textColor">@color/white</item>
     </style>
 </resources>
